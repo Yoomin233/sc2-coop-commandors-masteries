@@ -152,7 +152,7 @@ module.exports = (env = {}) => {
               loader: 'url-loader',
               options: {
                 // or handled by webpack as normal pic/asset
-                limit: 10000
+                limit: 5000
               }
             }
           ]

@@ -24,6 +24,7 @@
   "license": "ISC",
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "@types/node": "^13.11.0",
     "axios": "^0.18.0",
     "express": "^4.17.1",
     "react": "16.8.6",
@@ -45,6 +46,7 @@
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.2",
+    "@types/webpack-env": "^1.15.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",

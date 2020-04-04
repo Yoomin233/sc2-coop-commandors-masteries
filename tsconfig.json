@@ -16,8 +16,11 @@
       "components/*": ["components/*"],
       "utils": ["utils"],
       "App": ["App"]
-    }
+    },
+    "types": [
+      "webpack-env"
+    ]
   },
   "include": ["./src/**/*"],
-  "typeRoots": ["./src/@types", "./node_modules/@types"]
+  "typeRoots": ["./src/@types", "./node_modules/@types"],
 }

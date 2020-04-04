@@ -24,8 +24,8 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
       if (current + added_points < 0) {
         return 0;
       }
-      if (current + added_points > 20) {
-        return 20;
+      if (current + added_points > 30) {
+        return 30;
       }
       if (remaining_points < added_points) {
         added_points = remaining_points;
@@ -39,20 +39,24 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
         <span>技能组 {idx + 1}</span>
         <span>尚未花费点数: {remaining_points}</span>
       </p>
-      {skills.map((s, idx: 0 | 1) => (
-        <p key={idx}>
-          <span>{s.name}</span>
+      {skills.map((s, idx: 0 | 1) => {
+        const mastery_point = idx === 0 ? skill_1_points : skill_2_points
+        const mastery_setter = idx === 0 ? set_skill_1_points : set_skill_2_points
+        return <p key={idx}>
+          <span>{s.name}{
+            s.name_eng && <><br></br>{s.name_eng}</>
+          }</span>
           <span>
-            {s.minus ? '-' : '+'}
-            {(idx === 0 ? skill_1_points : skill_2_points) * s.step}
+            {s.step < 0 ? '' : '+'}
+            {(mastery_point) * s.step}
             {s.unit}
           </span>
-          <span>{idx === 0 ? skill_1_points : skill_2_points}/20</span>
+          <span>{mastery_point}/30</span>
           <span
-          className='btn'
+          className={`btn ${mastery_point <= 0 ? 'disabled' : ''}`}
             onClick={e =>
               set_points(
-                idx === 0 ? set_skill_1_points : set_skill_2_points,
+                mastery_setter,
                 -1,
                 e
               )
@@ -61,10 +65,10 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
             -
           </span>
           <span
-          className='btn'
+          className={`btn ${remaining_points <= 0 ? 'disabled' : ''}`}
             onClick={e =>
               set_points(
-                idx === 0 ? set_skill_1_points : set_skill_2_points,
+                mastery_setter,
                 1,
                 e
               )
@@ -73,7 +77,7 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
             +
           </span>
         </p>
-      ))}
+})}
     </div>
   );
 };
