@@ -1,0 +1,11 @@
+.transition_wrapper {
+  transition: all .2s ease-in-out;
+  &.move_out {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  &.move_in {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+}
