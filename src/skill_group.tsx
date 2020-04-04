@@ -46,20 +46,16 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
           idx === 0 ? set_skill_1_points : set_skill_2_points;
         return (
           <p key={idx}>
-            <Transition delay={group_idx * 2 * 20 + idx * 20}>
+            <Transition delay={group_idx * 2 * 20 + idx * 20} ident={`${s.name}${s.name_eng}`}>
               <span>
                 {s.name}
-                {s.name_eng && (
-                  <>
-                    <br></br>
-                    {s.name_eng}
-                  </>
-                )}
+                {s.name && s.name_eng && <br></br>}
+                {s.name_eng && s.name_eng}
               </span>
             </Transition>
 
             <span>
-              {s.step < 0 ? '' : '+'}
+              {s.step < 0 ? (mastery_point === 0 ? '-' : '') : '+'}
               {mastery_point * s.step}
               {s.unit}
             </span>

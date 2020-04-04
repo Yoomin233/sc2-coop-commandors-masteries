@@ -11,6 +11,19 @@ const App = () => {
   // const [points_available, set_points_available] = React.useState(90);
   // const [points_used, set_points_used] = React.useState(0);
 
+  React.useEffect(() => {
+    const name = decodeURIComponent(location.hash).slice(1)
+    if (name && commandors.filter(
+      c => c.name === name
+    )[0]) {
+      set_selected_commandor(name)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    location.hash = selected_commandor
+  }, [selected_commandor])
+
   const commandor_skills = commandors.filter(
     c => c.name === selected_commandor
   )[0].skills;

@@ -5,10 +5,11 @@ import './style.less';
 interface Props {
   children: any;
   delay?: number
+  ident: any
 }
 
 const Transition = (prop: Props) => {
-  const { children, delay = 0 } = prop;
+  const { children, delay = 0, ident } = prop;
   const [clone, set_clone] = React.useState(React.cloneElement(children));
   const [className, set_className] = React.useState('');
 
@@ -35,7 +36,7 @@ const Transition = (prop: Props) => {
     }, delay);
     
     
-  }, [children]);
+  }, [ident]);
   return <span className={`transition_wrapper ${className}`}>{clone}</span>;
 };
 
