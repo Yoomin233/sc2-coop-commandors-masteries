@@ -70,26 +70,28 @@
     
     
     .btn {
-      display: flex;
-      width: 1.5rem;
+      display: inline-flex;
+      min-width: 1.5rem;
       height: 1.5rem;
+      padding: 0 0.2rem;
       justify-content: center;
       align-items: center;
       box-shadow: 0px 0px 0.3rem 0.1rem rgba(63, 102, 140, 0.8), inset 0px -2px 0.3rem 0.1rem rgba(63, 102, 140, 0.6);
       border-radius: 0.3rem;
-      color: #fff;
+      color: #b9c4d2;
       text-shadow: 0px 0px 0.1rem rgba(255, 255, 255, 0.8);
       // font-size: 1.2em;
       border: 1px solid rgb(90, 145, 198);
       transition: all .3s ease-in-out;
       
-      &:last-child {
-        margin-left: 0.8rem;
+      & {
+        margin-left: 0.4rem;
       }
       &.disabled {
         border-color: rgb(41, 64, 97);
         color: rgb(62, 79, 106);
         box-shadow: 0px 0px 0.3rem 0.1rem rgba(63, 102, 140, 0.4), inset 0px -2px 0.3rem 0.1rem rgba(63, 102, 140, 0.2);
+        text-shadow: none;
       }
     }
     span {
@@ -105,7 +107,7 @@
     >p:not(:first-child) {
       padding: 1rem;
       display: grid;
-      grid-template-columns: 55% auto 10% max-content max-content;
+      grid-template-columns: 45% auto 10% max-content;
       color: rgb(109, 170, 210);
       line-height: 1.4;
     }
@@ -118,33 +120,23 @@
   @media only screen and (max-width: 540px) {
     .skill_group>p:not(:first-child) {
       grid-template-rows: auto auto;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr max-content max-content;
       row-gap: 0.5rem;
       >span {
         justify-self: flex-end;
       }
       >:first-child {
         justify-self: flex-start;
-        grid-column-start: 1;
-        grid-column-end: 5;
       }
       >:nth-child(2) {
-        justify-self: flex-start;
+        margin: 0 0.5rem;
+      }
+      >:last-child {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
       }
     }
 }
-
-// ::-webkit-scrollbar {
-//   width: 8px;
-//   height: 0px;
-//   // background-color: var(--track-bg);
-// }
-
-// ::-webkit-scrollbar-thumb {
-//   // background-color: var(--track-thumb-bg);
-// }
-
-// ::-webkit-scrollbar-thumb,
-// ::-webkit-scrollbar-track {
-//   border-radius: 10px;
-// }
