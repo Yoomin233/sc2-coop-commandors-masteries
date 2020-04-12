@@ -7,7 +7,7 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
   const [skill_1_points, set_skill_1_points] = React.useState(0);
   const [skill_2_points, set_skill_2_points] = React.useState(0);
 
-  const remaining_points = 30 - (skill_1_points + skill_2_points);
+  const remaining_points = 40 - (skill_1_points + skill_2_points);
 
   const set_points = (
     setter: React.Dispatch<React.SetStateAction<number>>,
@@ -26,15 +26,16 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
       /**
        * 上下限处理
        */
+      if (remaining_points < added_points) {
+        added_points = remaining_points;
+      }
       if (current + added_points < 0) {
         return 0;
       }
       if (current + added_points > 30) {
         return 30;
       }
-      if (remaining_points < added_points) {
-        added_points = remaining_points;
-      }
+      
       return current + added_points;
     });
   };
@@ -60,7 +61,7 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
         const mastery_setter =
           idx === 0 ? set_skill_1_points : set_skill_2_points;
         const minus_disabled = mastery_point <= 0 ? 'disabled' : '';
-        const add_disabled = remaining_points <= 0 ? 'disabled' : '';
+        const add_disabled = remaining_points <= 0 || mastery_point >= 30 ? 'disabled' : '';
         return (
           <p key={idx}>
             <Transition
@@ -83,7 +84,7 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
             <span>
               <span
                 className={`btn ${minus_disabled}`}
-                onClick={e => set_points(mastery_setter, -1, e, -30)}
+                onClick={e => set_points(mastery_setter, -1, e, -40)}
               >
                 Min
               </span>
@@ -113,7 +114,7 @@ const SkillGroup = (prop: { skills: [skill, skill]; idx: number }) => {
               </span>
               <span
                 className={`btn ${add_disabled}`}
-                onClick={e => set_points(mastery_setter, 1, e, 30)}
+                onClick={e => set_points(mastery_setter, 1, e, 40)}
               >
                 Max
               </span>

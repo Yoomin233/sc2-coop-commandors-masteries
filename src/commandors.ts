@@ -48,13 +48,13 @@ export const commandors: {
           name: '医疗兵治疗额外目标',
           name_eng: 'Medics Heal Addtional Target	',
           step: 3,
-          unit: '%基础治疗百分比'
+          unit: '%'
         },
         {
           name: '机械部队攻击速度',
           name_eng: 'Mech Attack Speed	',
           step: 1,
-          unit: '%百分比'
+          unit: '%'
         }
       ]
     ]
