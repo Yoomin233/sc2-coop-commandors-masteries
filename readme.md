@@ -2,11 +2,11 @@
 
 #### 适用于: 合作模式 & 游戏大厅指挥官MOD
 
-#### [LINK](https://yueminhu.github.io/sc2-coop-commandors-simulator/output/)
+#### [LINK](https://yueminhu.github.io/sc2-coop-commandors-masteries/output/)
 
 #### screenshot
 
-![alt](https://yueminhu.github.io/sc2-coop-commandors-simulator/screenshots/screenshot.png)
+![alt](https://yueminhu.github.io/sc2-coop-commandors-masteries/screenshots/screenshot.png)
 
 
 
